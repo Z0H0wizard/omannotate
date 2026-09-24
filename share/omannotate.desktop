@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=OmAnnotate
+GenericName=Screen drawing
+Comment=Settings for drawing on screen with Super+Ctrl+drag
+Icon=omannotate
+Exec=sh -c "omarchy-shell omannotate settings && exit 0; if [ -d \\"\\$HOME/.config/omarchy/plugins/omannotate\\" ]; then omarchy plugin enable omannotate; for try in 1 2 3 4 5 6 7 8 9 10; do sleep 0.5; omarchy-shell omannotate settings && exit 0; done; exit 1; fi; data=\\${XDG_DATA_HOME:-\\$HOME/.local/share}; note='This launcher is left over from it.'; for link in \\"\\$data/applications/omannotate.desktop\\" \\"\\$data/icons/hicolor/512x512/apps/omannotate.png\\"; do case \\$(readlink -- \\"\\$link\\") in */plugins/omannotate/*) rm -f -- \\"\\$link\\"; note='Its leftover launcher was removed.' ;; esac; done; notify-send -a OmAnnotate 'OmAnnotate is not installed' \\"\\$note\\""
+Terminal=false
+StartupNotify=false
+Categories=Utility;
+Keywords=draw;annotate;pen;marker;screen;

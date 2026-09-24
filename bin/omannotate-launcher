@@ -1,0 +1,60 @@
+#!/bin/bash
+# OmAnnotate's app launcher, so it shows under Apps with its logo.
+#
+# Usage: omannotate-launcher <install|remove>
+#
+# Both links point into the plugin folder: share/omannotate.desktop (no paths
+# of its own) and icon.png. Removing the plugin removes what they point at, so
+# the launcher disappears by itself even if nothing runs at removal. Only links
+# into an omannotate plugin folder are replaced or removed; a file of the
+# user's own at either place is left alone.
+#
+# Exit status: 0 done, 2 a file of the user's own was left in place, 1 error.
+set -euo pipefail
+
+plugin=$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)
+data=${XDG_DATA_HOME:-$HOME/.local/share}
+# Icon first: the app list rescans icons when the launcher appears.
+links=(
+  "$data/icons/hicolor/512x512/apps/omannotate.png|$plugin/icon.png"
+  "$data/applications/omannotate.desktop|$plugin/share/omannotate.desktop"
+)
+
+ours() {
+  [[ -L $1 ]] && [[ $(readlink "$1") == */plugins/omannotate/* ]]
+}
+
+status=0
+case ${1-} in
+  install)
+    for link in "${links[@]}"; do
+      path=${link%%|*} target=${link#*|}
+      if [[ -e $path || -L $path ]] && ! ours "$path"; then
+        echo "kept: $path is not OmAnnotate's; the launcher needs it" >&2
+        status=2
+        continue
+      fi
+      [[ -L $path && $(readlink "$path") == "$target" ]] && continue
+      mkdir -p -- "$(dirname -- "$path")"
+      ln -sfn -- "$target" "$path"
+      echo "linked: $path"
+    done
+    ;;
+  remove)
+    for link in "${links[@]}"; do
+      path=${link%%|*}
+      if ours "$path"; then
+        rm -f -- "$path"
+        echo "removed: $path"
+      elif [[ -e $path ]]; then
+        echo "kept: $path is not OmAnnotate's" >&2
+        status=2
+      fi
+    done
+    ;;
+  *)
+    echo "usage: omannotate-launcher <install|remove>" >&2
+    exit 1
+    ;;
+esac
+exit $status

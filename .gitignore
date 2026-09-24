@@ -1,0 +1,5 @@
+node_modules/
+
+# Local only: tests and the test runner are not published.
+/tests/
+/scripts/test

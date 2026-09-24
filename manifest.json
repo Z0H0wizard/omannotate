@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "omannotate",
+  "name": "OmAnnotate",
+  "version": "0.1.0",
+  "author": "Legendary Solutions",
+  "description": "Hold Super+Ctrl and drag to draw fading lines on screen, for screen shares and recordings.",
+  "kinds": ["service", "panel"],
+  "entryPoints": {
+    "service": "Service.qml",
+    "panel": "Settings.qml"
+  }
+}
