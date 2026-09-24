@@ -29,7 +29,7 @@ are requested with a GitHub issue on
       passed from a local `file://` clone: install, launcher, drawing,
       settings, update, disable/enable and removal. The public URL is not
       tested yet.)
-- [ ] README has install and removal instructions (it does: Install, Remove).
+- [x] README has install and removal instructions (it does: Install, Remove).
 
 ## Submission issue
 
@@ -70,12 +70,15 @@ for the badge.
 
 ### Submission checklist
 
-- [x] The repository is public and its README explains installation and removal.
-- [x] The plugin license and external dependencies are documented.
-- [x] I own or have permission to publish the plugin and its preview assets.
+- [x] The repository is public and contains installation and removal instructions.
+- [x] I have documented the plugin license and any external dependencies.
+- [x] I confirm that I own or have permission to submit this plugin and its preview assets.
 - [x] The plugin does not overwrite user configuration without explicit consent.
-- [x] I understand that approval lists the plugin and is not a security review.
+- [x] I understand that approval is for listing and is not a security review.
 ```
+
+The headings, their order and the checklist wording must match the issue form
+exactly, or the marketplace does not detect the submission.
 
 ## Updating a listing
 

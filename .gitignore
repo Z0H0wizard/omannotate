@@ -1,5 +1,6 @@
 node_modules/
 
-# Local only: tests and the test runner are not published.
+# Local only: tests and development scripts are not published.
 /tests/
 /scripts/test
+/scripts/dev-install

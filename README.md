@@ -144,15 +144,13 @@ so it disappears too. Nothing else is left behind.
 MIT, © 2026 Legendary Solutions. See [LICENSE](LICENSE).
 
 OmAnnotate has no external dependencies: it runs on Omarchy's own shell
-(Quickshell, LGPL-3.0) and Hyprland (BSD-3-Clause), and uses `jq` and
-coreutils that Omarchy already includes. It does not bundle or modify any of
-them.
+(Quickshell, LGPL-3.0) and Hyprland (BSD-3-Clause), and uses `jq`,
+`notify-send` (libnotify) and coreutils, which Omarchy already includes. It
+does not bundle or modify any of them.
 
 ## Development
 
 ```bash
-scripts/dev-install          # copy this checkout into ~/.config/omarchy/plugins/omannotate
-                             # and restart omarchy-shell (--no-restart to only copy)
 python3 scripts/make-art.py  # rebuild preview.png (needs pycairo)
 ```
 
