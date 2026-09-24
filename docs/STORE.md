@@ -10,6 +10,7 @@ are requested with a GitHub issue on
 | Item | Where it comes from |
 |---|---|
 | Name, version, author, description | `manifest.json` |
+| Byline on the card ("by @…") | The GitHub account that owns the repository: @Z0H0wizard |
 | Logo | Not used by the marketplace. `icon.png` is for the README, the GitHub social preview and anywhere a square image is wanted. |
 | Card and detail image | `preview.png` in the repository root (2400×1200). The marketplace makes a 720 px card image and a 1600 px detail image itself; cards crop to about 2:1. |
 | Badge (the square tile shown without a preview) | Drawn by the marketplace from two letters and an accent color. Letters come from the name split at spaces, `-` and `_`, so "OmAnnotate" alone gives **O**; ask for **OA** in the maintainer notes. Accent colors: lime, amber, coral, cyan, violet, rose (the default for `omannotate` is violet; amber is closest to Omarchy's orange). |
@@ -18,7 +19,8 @@ are requested with a GitHub issue on
 ## Before submitting
 
 - [x] Public GitHub repository whose root is this folder: https://github.com/Z0H0wizard/omannotate
-- [x] `manifest.json` has an `author` (shown on the card): Legendary Solutions.
+- [x] `manifest.json` has an `author`: Legendary Solutions. (The card's byline is
+      the repository's GitHub account, @Z0H0wizard.)
 - [x] A `LICENSE` file in the root (MIT, © 2026 Legendary Solutions). OmAnnotate has no external dependencies (README → License).
 - [x] `omarchy plugin validate` accepts a fresh clone of the public repository
       (checked 2026-09-23).
@@ -51,7 +53,7 @@ hyprland, quickshell
 
 ### Suggest a missing tag
 
-annotation
+_No response_
 
 ### Maintainer notes
 
